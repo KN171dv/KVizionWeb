@@ -7,6 +7,10 @@
 --                    vendedor / vendedor123  (perfil VENDEDOR)
 -- =====================================================================
 
+-- Garante que os acentos dos dados abaixo sejam gravados corretamente,
+-- qualquer que seja o programa usado para executar o script
+SET NAMES utf8mb4;
+
 CREATE DATABASE IF NOT EXISTS kvizion DEFAULT CHARACTER SET utf8mb4;
 USE kvizion;
 
