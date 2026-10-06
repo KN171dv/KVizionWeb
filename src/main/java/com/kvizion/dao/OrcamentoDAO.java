@@ -115,6 +115,22 @@ public class OrcamentoDAO {
         return lista;
     }
 
+    // confere se existe orcamento com esse id
+    public boolean existe(int idOrcamento) throws SQLException {
+        String sql = "SELECT COUNT(*) FROM orcamento WHERE id = ?";
+
+        try (Connection conn = Conexao.conectar();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, idOrcamento);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                rs.next();
+                return rs.getInt(1) > 0;
+            }
+        }
+    }
+
     public void excluir(int idOrcamento) throws SQLException {
         String sqlItens = "DELETE FROM item_orcamento WHERE orcamento_id = ?";
         String sqlOrcamento = "DELETE FROM orcamento WHERE id = ?";

@@ -133,6 +133,22 @@ public class VendaDAO {
         return lista;
     }
 
+    // confere se existe venda com esse id
+    public boolean existe(int idVenda) throws SQLException {
+        String sql = "SELECT COUNT(*) FROM venda WHERE id = ?";
+
+        try (Connection conn = Conexao.conectar();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, idVenda);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                rs.next();
+                return rs.getInt(1) > 0;
+            }
+        }
+    }
+
     // Cancela a venda: devolve os produtos ao estoque e apaga os itens e a venda
     public void excluir(int idVenda) throws SQLException {
         String sqlEstoque = "UPDATE produto p INNER JOIN item_venda i ON i.produto_id = p.id "
