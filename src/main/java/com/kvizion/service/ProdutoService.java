@@ -26,6 +26,7 @@ public class ProdutoService {
     }
 
     public void excluir(int id) throws RegraNegocioException, SQLException {
+        buscarPorId(id); // confere se o produto existe
         if (produtoDAO.possuiMovimentacao(id)) {
             throw new RegraNegocioException("Este produto já foi usado em vendas ou orçamentos e não pode ser excluído.");
         }
@@ -55,6 +56,12 @@ public class ProdutoService {
         return baixos;
     }
 
+    // 12.5 e 12.55 sao aceitos; 12.555 nao (o banco guarda so 2 casas e arredondaria o valor)
+    private boolean temNoMaximoDuasCasas(double valor) {
+        double centavos = valor * 100;
+        return Math.abs(centavos - Math.round(centavos)) < 0.000001;
+    }
+
     public void validar(Produto produto) throws RegraNegocioException, SQLException {
         String nome = produto.getNome();
 
@@ -66,6 +73,9 @@ public class ProdutoService {
         }
         if (produto.getPreco() <= 0 || produto.getPreco() > PRECO_MAXIMO) {
             throw new RegraNegocioException("O preço deve ser maior que zero.");
+        }
+        if (!temNoMaximoDuasCasas(produto.getPreco())) {
+            throw new RegraNegocioException("O preço deve ter no máximo 2 casas decimais.");
         }
         if (produto.getQuantidade() < 0) {
             throw new RegraNegocioException("O estoque não pode ser negativo.");

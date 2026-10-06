@@ -39,7 +39,10 @@ public class VendaService {
     }
 
     // cancelar uma venda devolve os produtos para o estoque
-    public void cancelar(int idVenda) throws SQLException {
+    public void cancelar(int idVenda) throws RegraNegocioException, SQLException {
+        if (!vendaDAO.existe(idVenda)) {
+            throw new RegraNegocioException("Venda não encontrada.");
+        }
         vendaDAO.excluir(idVenda);
     }
 

@@ -23,6 +23,7 @@ public class ClienteService {
     }
 
     public void excluir(int id) throws RegraNegocioException, SQLException {
+        buscarPorId(id); // confere se o cliente existe
         if (clienteDAO.possuiMovimentacao(id)) {
             throw new RegraNegocioException("Este cliente possui vendas ou orçamentos e não pode ser excluído.");
         }

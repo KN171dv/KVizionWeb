@@ -31,7 +31,10 @@ public class OrcamentoService {
         orcamentoDAO.inserir(orcamento);
     }
 
-    public void excluir(int idOrcamento) throws SQLException {
+    public void excluir(int idOrcamento) throws RegraNegocioException, SQLException {
+        if (!orcamentoDAO.existe(idOrcamento)) {
+            throw new RegraNegocioException("Orçamento não encontrado.");
+        }
         orcamentoDAO.excluir(idOrcamento);
     }
 
