@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Início - KVizion</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+    <header class="topo">
+        <a href="menu.html" class="marca">KVizion</a>
+        <div class="usuario">
+            <span id="nomeUsuario"></span>
+            <button type="button" id="btnSair" class="botao secundario pequeno">Sair</button>
+        </div>
+    </header>
+
+    <nav class="menu" aria-label="Menu principal">
+        <a href="menu.html" class="ativo">Início</a>
+        <a href="venda.html">Nova venda</a>
+        <a href="vendas.html">Vendas</a>
+        <a href="orcamento.html">Novo orçamento</a>
+        <a href="orcamentos.html">Orçamentos</a>
+        <a href="clientes.html">Clientes</a>
+        <a href="produtos.html">Produtos</a>
+    </nav>
+
+    <main class="conteudo">
+        <h1>Painel inicial</h1>
+        <p class="subtitulo">Resumo do sistema e atalhos para as tarefas do dia a dia.</p>
+
+        <div id="mensagem" class="mensagem" role="alert"></div>
+
+        <section class="grade-cartoes" aria-label="Resumo">
+            <div class="resumo">
+                <span class="numero" id="totalClientes">0</span>
+                Clientes cadastrados
+            </div>
+            <div class="resumo">
+                <span class="numero" id="totalProdutos">0</span>
+                Produtos cadastrados
+            </div>
+            <div class="resumo">
+                <span class="numero" id="totalVendas">0</span>
+                Vendas realizadas
+            </div>
+            <div class="resumo alerta">
+                <span class="numero" id="totalEstoqueBaixo">0</span>
+                Produtos com estoque baixo
+            </div>
+        </section>
+
+        <section class="cartao">
+            <h2>Atalhos</h2>
+            <div class="atalhos">
+                <a href="venda.html" class="botao">Nova venda</a>
+                <a href="orcamento.html" class="botao">Novo orçamento</a>
+                <a href="cliente-form.html" class="botao secundario">Cadastrar cliente</a>
+                <a href="produto-form.html" class="botao secundario">Cadastrar produto</a>
+            </div>
+        </section>
+
+        <section class="cartao">
+            <h2>Produtos com estoque baixo</h2>
+            <div class="area-tabela">
+                <table class="tabela">
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th class="numero">Estoque</th>
+                            <th class="numero">Mínimo</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corpoEstoqueBaixo"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="rodape">KVizion - Projeto Integrador Senac</footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/comum.js"></script>
+    <script src="js/menu.js"></script>
+</body>
+</html>

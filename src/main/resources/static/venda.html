@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova venda - KVizion</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+    <header class="topo">
+        <a href="menu.html" class="marca">KVizion</a>
+        <div class="usuario">
+            <span id="nomeUsuario"></span>
+            <button type="button" id="btnSair" class="botao secundario pequeno">Sair</button>
+        </div>
+    </header>
+
+    <nav class="menu" aria-label="Menu principal">
+        <a href="menu.html">Início</a>
+        <a href="venda.html" class="ativo">Nova venda</a>
+        <a href="vendas.html">Vendas</a>
+        <a href="orcamento.html">Novo orçamento</a>
+        <a href="orcamentos.html">Orçamentos</a>
+        <a href="clientes.html">Clientes</a>
+        <a href="produtos.html">Produtos</a>
+    </nav>
+
+    <main class="conteudo">
+        <h1>Nova venda</h1>
+        <p class="subtitulo">Escolha o cliente, adicione os produtos e finalize. O estoque é baixado ao finalizar.</p>
+
+        <div id="mensagem" class="mensagem" role="alert"></div>
+
+        <section class="cartao">
+            <div class="campo">
+                <label for="cliente">Cliente *</label>
+                <select id="cliente" name="cliente">
+                    <option value="">Selecione o cliente</option>
+                </select>
+                <span class="erro-campo" id="erro-cliente"></span>
+            </div>
+
+            <div class="linha-form">
+                <div class="campo">
+                    <label for="produto">Produto *</label>
+                    <select id="produto" name="produto">
+                        <option value="">Selecione o produto</option>
+                    </select>
+                    <span class="erro-campo" id="erro-produto"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="quantidade">Quantidade *</label>
+                    <input type="text" id="quantidade" name="quantidade" inputmode="numeric">
+                    <span class="erro-campo" id="erro-quantidade"></span>
+                </div>
+            </div>
+
+            <button type="button" id="btnAdicionar" class="botao secundario">Adicionar item</button>
+        </section>
+
+        <section class="cartao">
+            <h2>Itens</h2>
+            <div class="area-tabela">
+                <table class="tabela">
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th class="numero">Preço</th>
+                            <th class="numero">Quantidade</th>
+                            <th class="numero">Subtotal</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corpoItens"></tbody>
+                </table>
+            </div>
+
+            <p class="total" id="total">Total: R$ 0,00</p>
+
+            <div class="acoes">
+                <button type="button" id="btnFinalizar" class="botao">Finalizar venda</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="rodape">KVizion - Projeto Integrador Senac</footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/comum.js"></script>
+    <script src="js/pedido.js"></script>
+    <script src="js/venda.js"></script>
+</body>
+</html>

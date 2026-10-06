@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - KVizion</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body class="pagina-login">
+
+    <main class="caixa-login">
+        <h1>KVizion</h1>
+        <p class="subtitulo">Sistema de vendas e orçamentos</p>
+
+        <div id="mensagem" class="mensagem" role="alert"></div>
+
+        <form id="formLogin" novalidate>
+            <div class="campo">
+                <label for="login">Login</label>
+                <input type="text" id="login" name="login" autocomplete="username" autofocus>
+                <span class="erro-campo" id="erro-login"></span>
+            </div>
+
+            <div class="campo">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" autocomplete="current-password">
+                <span class="erro-campo" id="erro-senha"></span>
+            </div>
+
+            <button type="submit" class="botao">Entrar</button>
+        </form>
+
+    </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/comum.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>

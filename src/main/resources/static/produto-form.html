@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de produto - KVizion</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+    <header class="topo">
+        <a href="menu.html" class="marca">KVizion</a>
+        <div class="usuario">
+            <span id="nomeUsuario"></span>
+            <button type="button" id="btnSair" class="botao secundario pequeno">Sair</button>
+        </div>
+    </header>
+
+    <nav class="menu" aria-label="Menu principal">
+        <a href="menu.html">Início</a>
+        <a href="venda.html">Nova venda</a>
+        <a href="vendas.html">Vendas</a>
+        <a href="orcamento.html">Novo orçamento</a>
+        <a href="orcamentos.html">Orçamentos</a>
+        <a href="clientes.html">Clientes</a>
+        <a href="produtos.html" class="ativo">Produtos</a>
+    </nav>
+
+    <main class="conteudo">
+        <h1 id="tituloPagina">Cadastro de produto</h1>
+        <p class="subtitulo">Os campos com * são obrigatórios.</p>
+
+        <div id="mensagem" class="mensagem" role="alert"></div>
+
+        <section class="cartao">
+            <form id="formProduto" novalidate>
+                <div class="campo">
+                    <label for="nome">Nome *</label>
+                    <input type="text" id="nome" name="nome" maxlength="100">
+                    <span class="erro-campo" id="erro-nome"></span>
+                </div>
+
+                <div class="linha-form">
+                    <div class="campo">
+                        <label for="preco">Preço (R$) *</label>
+                        <input type="text" id="preco" name="preco" inputmode="decimal" placeholder="12,50">
+                        <span class="erro-campo" id="erro-preco"></span>
+                    </div>
+
+                    <div class="campo">
+                        <label for="quantidade">Estoque *</label>
+                        <input type="text" id="quantidade" name="quantidade" inputmode="numeric">
+                        <span class="erro-campo" id="erro-quantidade"></span>
+                    </div>
+
+                    <div class="campo">
+                        <label for="estoqueMinimo">Estoque mínimo</label>
+                        <input type="text" id="estoqueMinimo" name="estoqueMinimo" inputmode="numeric">
+                        <span class="erro-campo" id="erro-estoqueMinimo"></span>
+                    </div>
+                </div>
+
+                <p class="dica">Quando o estoque chegar no mínimo, o produto aparece como "Estoque baixo".</p>
+
+                <div class="acoes">
+                    <button type="submit" id="btnSalvar" class="botao">Cadastrar</button>
+                    <a href="produtos.html" class="botao secundario">Voltar para a lista</a>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer class="rodape">KVizion - Projeto Integrador Senac</footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/comum.js"></script>
+    <script src="js/produto-form.js"></script>
+</body>
+</html>

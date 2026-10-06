@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos - KVizion</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+    <header class="topo">
+        <a href="menu.html" class="marca">KVizion</a>
+        <div class="usuario">
+            <span id="nomeUsuario"></span>
+            <button type="button" id="btnSair" class="botao secundario pequeno">Sair</button>
+        </div>
+    </header>
+
+    <nav class="menu" aria-label="Menu principal">
+        <a href="menu.html">Início</a>
+        <a href="venda.html">Nova venda</a>
+        <a href="vendas.html">Vendas</a>
+        <a href="orcamento.html">Novo orçamento</a>
+        <a href="orcamentos.html">Orçamentos</a>
+        <a href="clientes.html">Clientes</a>
+        <a href="produtos.html" class="ativo">Produtos</a>
+    </nav>
+
+    <main class="conteudo">
+        <h1>Produtos</h1>
+        <p class="subtitulo">Consulte o estoque, edite ou exclua os produtos cadastrados.</p>
+
+        <div id="mensagem" class="mensagem" role="alert"></div>
+
+        <section class="cartao">
+            <div class="barra-pesquisa">
+                <div class="campo">
+                    <label for="pesquisa">Pesquisar por nome</label>
+                    <input type="search" id="pesquisa" placeholder="Digite parte do nome">
+                </div>
+                <button type="button" id="btnLimpar" class="botao secundario">Limpar filtro</button>
+                <a href="produto-form.html" class="botao">Novo produto</a>
+            </div>
+
+            <div class="area-tabela">
+                <table class="tabela">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th class="numero">Preço</th>
+                            <th class="numero">Estoque</th>
+                            <th class="numero">Mínimo</th>
+                            <th>Situação</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corpoTabela"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="rodape">KVizion - Projeto Integrador Senac</footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/comum.js"></script>
+    <script src="js/produtos.js"></script>
+</body>
+</html>
