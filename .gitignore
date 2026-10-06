@@ -1,0 +1,4 @@
+/target/
+/nbproject/private/
+# arquivo com a senha do banco: nao vai para o GitHub
+config.properties
