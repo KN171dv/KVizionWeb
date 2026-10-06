@@ -1,0 +1,401 @@
+/* ==========================================================
+   KVizion - estilo geral do sistema web
+   Cores: azul como principal, tons neutros no fundo,
+   verde para sucesso e vermelho para erro/alerta.
+   ========================================================== */
+
+:root {
+    --azul: #1b4f9c;
+    --azul-escuro: #143b75;
+    --azul-claro: #e8f0fb;
+    --fundo: #f4f6f9;
+    --branco: #ffffff;
+    --texto: #1f2933;
+    --texto-suave: #52606d;
+    --borda: #cbd2d9;
+    --verde: #1e7d45;
+    --verde-claro: #e3f5ea;
+    --vermelho: #b3261e;
+    --vermelho-claro: #fbe9e7;
+    --amarelo-claro: #fff4d6;
+    --amarelo-texto: #7a5200;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 16px;
+    color: var(--texto);
+    background-color: var(--fundo);
+}
+
+h1 {
+    font-size: 26px;
+    margin: 0 0 6px 0;
+}
+
+h2 {
+    font-size: 19px;
+    margin: 0 0 12px 0;
+}
+
+.subtitulo {
+    margin: 0 0 20px 0;
+    color: var(--texto-suave);
+}
+
+/* ---------- Cabeçalho e menu ---------- */
+
+.topo {
+    background-color: var(--azul);
+    color: var(--branco);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 10px 24px;
+}
+
+.marca {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--branco);
+    text-decoration: none;
+}
+
+.usuario {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+}
+
+.menu {
+    background-color: var(--azul-escuro);
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 16px;
+}
+
+.menu a {
+    color: var(--branco);
+    text-decoration: none;
+    padding: 12px 14px;
+    font-size: 15px;
+}
+
+.menu a:hover,
+.menu a:focus {
+    background-color: var(--azul);
+}
+
+.menu a.ativo {
+    background-color: var(--fundo);
+    color: var(--azul-escuro);
+    font-weight: bold;
+}
+
+/* ---------- Área principal ---------- */
+
+.conteudo {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 24px 16px 40px 16px;
+}
+
+.cartao {
+    background-color: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.rodape {
+    text-align: center;
+    color: var(--texto-suave);
+    font-size: 13px;
+    padding: 16px;
+}
+
+/* ---------- Painel inicial ---------- */
+
+.grade-cartoes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.resumo {
+    background-color: var(--branco);
+    border: 1px solid var(--borda);
+    border-left: 6px solid var(--azul);
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.resumo .numero {
+    display: block;
+    font-size: 30px;
+    font-weight: bold;
+    color: var(--azul);
+}
+
+.resumo.alerta {
+    border-left-color: var(--vermelho);
+}
+
+.resumo.alerta .numero {
+    color: var(--vermelho);
+}
+
+.atalhos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* ---------- Botões ---------- */
+
+.botao {
+    display: inline-block;
+    background-color: var(--azul);
+    color: var(--branco);
+    border: 1px solid var(--azul);
+    border-radius: 6px;
+    padding: 9px 16px;
+    font-size: 15px;
+    font-family: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.botao:hover,
+.botao:focus {
+    background-color: var(--azul-escuro);
+}
+
+.botao.secundario {
+    background-color: var(--branco);
+    color: var(--azul);
+}
+
+.botao.secundario:hover,
+.botao.secundario:focus {
+    background-color: var(--azul-claro);
+}
+
+.botao.perigo {
+    background-color: var(--branco);
+    color: var(--vermelho);
+    border-color: var(--vermelho);
+}
+
+.botao.perigo:hover,
+.botao.perigo:focus {
+    background-color: var(--vermelho-claro);
+}
+
+.botao.pequeno {
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.botao:disabled {
+    background-color: #e4e7eb;
+    color: #7b8794;
+    border-color: #cbd2d9;
+    cursor: not-allowed;
+}
+
+/* ---------- Formulários ---------- */
+
+.campo {
+    margin-bottom: 16px;
+}
+
+.campo label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.campo input,
+.campo select {
+    width: 100%;
+    padding: 9px 10px;
+    font-size: 15px;
+    font-family: inherit;
+    border: 1px solid var(--borda);
+    border-radius: 6px;
+    background-color: var(--branco);
+}
+
+.campo input:focus,
+.campo select:focus {
+    outline: 2px solid var(--azul);
+    border-color: var(--azul);
+}
+
+.campo input.invalido,
+.campo select.invalido {
+    border-color: var(--vermelho);
+    background-color: var(--vermelho-claro);
+}
+
+.erro-campo {
+    display: block;
+    color: var(--vermelho);
+    font-size: 14px;
+    margin-top: 4px;
+    min-height: 18px;
+}
+
+.dica {
+    color: var(--texto-suave);
+    font-size: 13px;
+}
+
+.linha-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+}
+
+.acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.barra-pesquisa {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: flex-end;
+    margin-bottom: 16px;
+}
+
+.barra-pesquisa .campo {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 0;
+}
+
+/* ---------- Mensagens ---------- */
+
+.mensagem {
+    display: none;
+    padding: 12px 14px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    border: 1px solid transparent;
+}
+
+.mensagem.sucesso {
+    display: block;
+    background-color: var(--verde-claro);
+    color: var(--verde);
+    border-color: var(--verde);
+}
+
+.mensagem.erro {
+    display: block;
+    background-color: var(--vermelho-claro);
+    color: var(--vermelho);
+    border-color: var(--vermelho);
+}
+
+/* ---------- Tabelas ---------- */
+
+.area-tabela {
+    overflow-x: auto;
+}
+
+.tabela {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabela th,
+.tabela td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--borda);
+}
+
+.tabela th {
+    background-color: var(--azul-claro);
+    color: var(--azul-escuro);
+}
+
+.tabela tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+.tabela .numero {
+    text-align: right;
+}
+
+.tabela .acoes-linha {
+    white-space: nowrap;
+}
+
+.vazio {
+    color: var(--texto-suave);
+    text-align: center;
+    padding: 18px;
+}
+
+.etiqueta {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.etiqueta.ok {
+    background-color: var(--verde-claro);
+    color: var(--verde);
+}
+
+.etiqueta.baixo {
+    background-color: var(--amarelo-claro);
+    color: var(--amarelo-texto);
+}
+
+.total {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: right;
+    margin: 16px 0;
+}
+
+/* ---------- Telas pequenas ---------- */
+
+@media (max-width: 600px) {
+    .topo {
+        padding: 10px 16px;
+    }
+
+    .menu a {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+}
+
+/* O cartão de itens das consultas começa escondido; o JavaScript mostra ao clicar em "Ver itens" */
+#cartaoItens {
+    display: none;
+}
