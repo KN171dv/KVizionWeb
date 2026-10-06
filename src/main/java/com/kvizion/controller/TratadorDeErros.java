@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 // Transforma as excecoes em respostas JSON no formato {"mensagem": "..."}
 @RestControllerAdvice
@@ -28,6 +29,12 @@ public class TratadorDeErros {
     // o JSON enviado nao pode ser lido (por exemplo, letra em campo numerico)
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity<Map<String, String>> dadosInvalidos(HttpMessageNotReadableException e) {
+        return responder(HttpStatus.BAD_REQUEST, "Dados inválidos.");
+    }
+
+    // o id da URL nao e um numero (por exemplo /api/clientes/abc)
+    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
+    public ResponseEntity<Map<String, String>> parametroInvalido(MethodArgumentTypeMismatchException e) {
         return responder(HttpStatus.BAD_REQUEST, "Dados inválidos.");
     }
 

@@ -67,7 +67,8 @@ public class VendaController {
 
     // Cancelar uma venda devolve os produtos ao estoque
     @DeleteMapping("/{id}")
-    public void cancelar(@PathVariable("id") int id, HttpSession sessao) throws AcessoNegadoException, SQLException {
+    public void cancelar(@PathVariable("id") int id, HttpSession sessao)
+            throws RegraNegocioException, AcessoNegadoException, SQLException {
         Sessao.exigirAdmin(sessao);
         vendaService.cancelar(id);
     }

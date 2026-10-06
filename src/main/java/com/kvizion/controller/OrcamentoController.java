@@ -66,7 +66,8 @@ public class OrcamentoController {
     }
 
     @DeleteMapping("/{id}")
-    public void excluir(@PathVariable("id") int id, HttpSession sessao) throws AcessoNegadoException, SQLException {
+    public void excluir(@PathVariable("id") int id, HttpSession sessao)
+            throws RegraNegocioException, AcessoNegadoException, SQLException {
         Sessao.exigirAdmin(sessao);
         orcamentoService.excluir(id);
     }
