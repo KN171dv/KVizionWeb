@@ -22,6 +22,11 @@ public class PedidoDTO {
     }
 
     public void setItens(List<ItemDTO> itens) {
-        this.itens = itens;
+        // se a pagina mandar "itens": null, fica uma lista vazia (evita NullPointerException)
+        if (itens == null) {
+            this.itens = new ArrayList<>();
+        } else {
+            this.itens = itens;
+        }
     }
 }
