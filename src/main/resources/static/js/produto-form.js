@@ -56,6 +56,9 @@ async function salvar(evento) {
     } else if (preco <= 0) {
         mostrarErroCampo("preco", "O preço deve ser maior que zero.");
         valido = false;
+    } else if (!/^[0-9]+(\.[0-9]{1,2})?$/.test(textoPreco)) {
+        mostrarErroCampo("preco", "O preço deve ter no máximo 2 casas decimais.");
+        valido = false;
     }
 
     if (!textoEInteiro(textoQuantidade)) {
